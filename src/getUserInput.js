@@ -1,10 +1,10 @@
 import readline from "readline";
 import {
-  checkUserInputValidateForBuyLotto,
-  checkUserInputValidateForBonusNumber,
-  checkUserInputValidateForWinningNumber,
-  checkUserInputValidateForRetry,
-} from "./checkValidation.js";
+  checkUserInputForBuyLotto,
+  checkUserInputForBonusNumber,
+  checkUserInputForWinningNumber,
+  checkUserInputForRetry,
+} from "./validation/index.js";
 
 export async function readLineAsync(query) {
   const rl = readline.createInterface({
@@ -19,7 +19,7 @@ export async function readLineAsync(query) {
     });
   });
 
-  checkUserInputValidateForBuyLotto(input);
+  checkUserInputForBuyLotto(input);
 
   return input;
 }
@@ -36,7 +36,7 @@ export async function getWinningNumbers(query) {
     });
   });
 
-  checkUserInputValidateForWinningNumber(input);
+  checkUserInputForWinningNumber(input);
 
   return input;
 }
@@ -54,7 +54,7 @@ export async function getBonusNumber(query) {
     });
   });
 
-  checkUserInputValidateForBonusNumber(input);
+  checkUserInputForBonusNumber(input);
 
   return input;
 }
@@ -71,7 +71,7 @@ export async function IsUserRetry(query) {
     });
   });
 
-  checkUserInputValidateForRetry(input);
+  checkUserInputForRetry(input);
 
   return input;
 }
