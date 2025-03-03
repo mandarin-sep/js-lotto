@@ -1,4 +1,4 @@
-import Lotto, { calculateLottoTicketLimit, buyLottos } from "../src/lotto";
+import Lotto, { calculateLottoTicketLimit } from "../src/lotto/lottoTicket";
 
 describe("로또를 구매할때", () => {
   let lotto;
@@ -14,20 +14,22 @@ describe("로또를 구매할때", () => {
   });
   test("로또는 예산 1000원당 1장씩 살 수 있다.", () => {
     const 구입_가능한_횟수 = calculateLottoTicketLimit(lotto.budget);
-    buyLottos(구입_가능한_횟수, lotto);
-    expect(lotto.numbers.length).toBe(12);
+    lotto.buyLottos(구입_가능한_횟수);
+    expect(lotto.ticketNumbers.length).toBe(12);
   });
   test("로또는 한배열에 6개의 숫자를 가진다.", () => {
-    lotto.makeLotto();
+    lotto.makeLottoTicket();
 
-    expect(lotto.numbers[0].length).toBe(6);
-    expect(lotto.numbers[0].every((num) => typeof num === "number")).toBe(true);
+    expect(lotto.ticketNumbers[0].length).toBe(6);
+    expect(lotto.ticketNumbers[0].every((num) => typeof num === "number")).toBe(
+      true
+    );
   });
 
   test("발행된 로또의 값들은 1 - 45까지의 값을 가진다.", () => {
-    lotto.makeLotto();
-    expect(lotto.numbers[0].every((value) => value >= 1 && value <= 45)).toBe(
-      true
-    );
+    lotto.makeLottoTicket();
+    expect(
+      lotto.ticketNumbers[0].every((value) => value >= 1 && value <= 45)
+    ).toBe(true);
   });
 });

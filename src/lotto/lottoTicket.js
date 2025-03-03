@@ -22,7 +22,7 @@ export default class Lotto {
   makeLottoTicket() {
     this.ticketNumbers.push(this.makeNumbers());
   }
-  buyLottos() {
+  buyLottos(count) {
     for (let i = 0; i < count; i++) {
       this.makeLottoTicket();
     }

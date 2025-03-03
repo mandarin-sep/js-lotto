@@ -1,11 +1,11 @@
-import { calculateLottoTicketLimit } from "./lotto.js";
+import { calculateLottoTicketLimit } from "./lotto/lottoTicket.js";
 import { getReward, getRank } from "../src/getRank.js";
 
 export const checkResult = (winningNumbers, lotto) => {
   const count = calculateLottoTicketLimit(lotto.budget);
   const result = [0, 0, 0, 0, 0, 0];
   for (let i = 0; i < count; i++) {
-    const winningRank = getRank(winningNumbers, lotto.numbers[i]);
+    const winningRank = getRank(winningNumbers, lotto.ticketNumbers[i]);
     result[winningRank - 1] += 1;
   }
 

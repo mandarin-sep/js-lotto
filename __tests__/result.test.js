@@ -1,4 +1,4 @@
-import Lotto from "../src/lotto";
+import Lotto from "../src/lotto/lottoTicket";
 import {
   checkResult,
   computeTotalPrize,
@@ -14,7 +14,7 @@ describe("로또를 사고 당첨 번호도 입력한 이후", () => {
 
   test("배열의 인덱스에 각 순위에 당첨된 만큼 숫자가 1씩 증가한다.", () => {
     const 당첨_번호 = [[1, 2, 3, 4, 5, 6], 7];
-    lotto.numbers = [
+    lotto.ticketNumbers = [
       [1, 2, 3, 4, 5, 6],
       [1, 2, 3, 4, 5, 16],
       [1, 2, 3, 4, 15, 16],
